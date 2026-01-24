@@ -10,10 +10,15 @@ import numpy as np
 from collections import deque
 import hashlib
 
-# --- CONFIGURATION ---
-NGROK_URL = "https://virgilio-overjocular-pretechnically.ngrok-free.dev/latest"
-genai.configure(api_key="AIzaSyBCs6qBdMSMQVmRuU11R")
+# PASTE THIS:
+# 1. Replace with your Render URL from Part 3
+NGROK_URL = "https://vitalguard-api.onrender.com/latest" 
 
+# 2. Load API Key securely from Streamlit Secrets
+try:
+    genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
+except FileNotFoundError:
+    st.error("Secrets not found. Please set GEMINI_API_KEY in Streamlit Cloud settings.")
 # --- ENHANCED HELPER FUNCTIONS ---
 def generate_unique_key(base_name):
     """Generate unique keys for Plotly charts to prevent ID conflicts"""
