@@ -28,7 +28,7 @@ if len(patient_1_records) == 0:
 patient_1_records.sort(key=lambda x: x["timestamp"])
 
 # 5. The Stream Loop
-API_URL = "http://127.0.0.1:8000/update"
+API_URL = "https://vitalguard-ai.onrender.com/update"
 print("Starting live data stream...")
 
 for record in patient_1_records:
