@@ -2,7 +2,11 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 
 app = FastAPI()
-
+# --- ADD THIS SECTION ---
+@app.get("/")
+def read_root():
+    return {"status": "Online", "message": "VitalGuard Backend is Running"}
+# ------------------------
 current_data = {}
 
 @app.post("/update")
